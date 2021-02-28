@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd "$(dirname "$0")"
+
 DOMAIN=${1:-abtercms.test}
 
 mkcert "${DOMAIN}" "*.${DOMAIN}"
