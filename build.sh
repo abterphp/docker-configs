@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit
 
 docker pull php:7.4-fpm-alpine
 docker pull php:8.0-fpm-alpine
