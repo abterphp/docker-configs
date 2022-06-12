@@ -1,4 +1,4 @@
-version: 'three-point-zero'
+version: '3.8'
 services:
   db:
     image: mariadb
@@ -47,7 +47,7 @@ services:
       - MH_HOSTNAME=localhost
 
   fpm:
-    image: abtercms/php:74
+    image: abtercms/php:80
     links:
       - db
       - db_test
@@ -69,13 +69,12 @@ services:
       - DB_PORT=3306
     volumes:
       - .:/website
-      - ./docker/php/conf.d/ast-off.ini:/usr/local/etc/php/conf.d/docker-php-ext-ast.ini:ro
       - ./docker/php/conf.d/zzz_020_general.ini:/usr/local/etc/php/conf.d/zzz_020_general.ini:ro
       - ./docker/php/conf.d/zzz_500_local.ini:/usr/local/etc/php/conf.d/zzz_500_local.ini:ro
     working_dir: /website
 
   cli:
-    image: abtercms/php:74
+    image: abtercms/php:80
     links:
       - db
       - db_test
@@ -97,6 +96,7 @@ services:
       - DB_PORT=3306
     volumes:
       - .:/website
+      - ./docker/php/conf.d/ast-on.ini:/usr/local/etc/php/conf.d/ast-on.ini:ro
       - ./docker/php/conf.d/zzz_020_general.ini:/usr/local/etc/php/conf.d/zzz_020_general.ini:ro
       - ./docker/php/conf.d/zzz_500_local.ini:/usr/local/etc/php/conf.d/zzz_500_local.ini:ro
     working_dir: /website
