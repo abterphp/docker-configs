@@ -47,7 +47,7 @@ services:
       - MH_HOSTNAME=localhost
 
   fpm:
-    image: abtercms/php:80
+    image: abtercms/php:81
     links:
       - db
       - db_test
@@ -74,7 +74,7 @@ services:
     working_dir: /website
 
   cli:
-    image: abtercms/php:80
+    image: abtercms/php:81
     links:
       - db
       - db_test
